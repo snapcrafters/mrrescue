@@ -1,0 +1,61 @@
+name: mrrescue
+version:  1.02e
+summary: Arcade-style fire fighting game
+description: |
+ Mr. Rescue is an arcade styled 2D action game centered around evacuating
+ civilians from burning buildings.
+
+ The game features fast paced fire extinguishing action, intense boss battles,
+ a catchy soundtrack and lots of throwing people around in pseudo-randomly
+ generated buildings.
+
+grade: stable
+confinement: strict
+
+parts:
+  love0.10.2:
+    source: https://bitbucket.org/rude/love/downloads/love_0.10.2ppa1_amd64.deb
+    plugin: dump
+    # Suitable stage-packages for LOVE 0.9.x and 0.10.x
+    stage-packages:
+      - libdevil1c2
+      - libfreetype6
+      - libgcc1
+      - libgl1-mesa-glx
+      - libluajit-5.1-2
+      - libmodplug1
+      - libmpg123-0
+      - libopenal1
+      - libphysfs1
+      - libsdl2-2.0-0
+      - libstdc++6
+      - libtheora0
+      - libvorbisfile3
+      - zlib1g
+
+  liblove0.10.2:
+    source: https://bitbucket.org/rude/love/downloads/liblove0_0.10.2ppa1_amd64.deb
+    plugin: dump
+    after:
+      - love0.10.2
+
+  mrrescue:
+    source: ./lovegame/
+    plugin: dump
+    after:
+      - desktop-glib-only
+      - love0.10.2
+      - liblove0.10.2
+
+apps:
+  mrrescue:
+    command: bin/desktop-launch $SNAP/usr/bin/love $SNAP/mrrescue1.02e.love
+    plugs:
+      - gsettings
+      - joystick
+      - network
+      - network-bind
+      - opengl
+      - pulseaudio
+      - screen-inhibit-control
+      - x11
