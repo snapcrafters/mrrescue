@@ -6,11 +6,9 @@
 
 <p align="center"><b>This is the snap for Mr. Rescue</b>, <i>"an arcade-style fire fighting game"</i>. It works on Ubuntu, Fedora, Debian, and other major Linux distributions.</p>
 
-<!--
 <p align="center">
 <a href="https://build.snapcraft.io/user/snapcrafters/mrrescue"><img src="https://build.snapcraft.io/badge/snapcrafters/mrrescue.svg" alt="Snap Status"></a>
 </p>
--->
 
 ## Install
 
