@@ -22,9 +22,7 @@
 
 ## Remaining tasks
 
-Snapcrafters ([join us]()) are working to land snap install documentation and
-the [snapcraft.yaml](https://github.com/snapcrafters/mrrescue/blob/master/snap/snapcraft.yaml)
-upstream so Mr. Rescue can authoritatively publish future releases.
+Snapcrafters ([join us](https://forum.snapcraft.io/t/join-snapcrafters/1325)) are working to land snap install documentation and the [snapcraft.yaml](https://github.com/snapcrafters/mrrescue/blob/master/snap/snapcraft.yaml) upstream so Mr. Rescue can authoritatively publish future releases.
 
   - [x] Fork the [Snapcrafters template](https://github.com/snapcrafters/fork-and-rename-me) repository to your own GitHub account
   - [x] Rename the forked Snapcrafters template repository
@@ -40,7 +38,7 @@ upstream so Mr. Rescue can authoritatively publish future releases.
   - [x] Update the install instructions in this `README.md`
   - [x] Post a call for testing on the [Snapcraft Forum](https://forum.snapcraft.io) - [link](https://forum.snapcraft.io/t/call-for-testing-duck-marines-and-mr-rescue/1224)
   - [x] Request your GitHub repository is forked to the Snapcrafters organisation and configured for automated builds
-  - [ ] Add the provided Snapcraft build badge to this `README.md`
+  - [x] Add the provided Snapcraft build badge to this `README.md`
   - [ ] Publish the snap in the Snap store stable channel
   - [ ] Update the install instructions in this `README.md`
   - [ ] Post an announcement in the [Snapcraft Forum](https://forum.snapcraft.io) - [link]()
