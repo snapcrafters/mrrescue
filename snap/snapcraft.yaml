@@ -58,4 +58,5 @@ apps:
       - opengl
       - pulseaudio
       - screen-inhibit-control
+      - wayland
       - x11
