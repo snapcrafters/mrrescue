@@ -12,7 +12,7 @@
 
 ## Install
 
-    sudo snap install mrrescue
+    snap install mrrescue
 
 ([Don't have snapd installed?](https://snapcraft.io/docs/core/install))
 
@@ -42,13 +42,13 @@ Snapcrafters ([join us](https://forum.snapcraft.io/t/join-snapcrafters/1325)) ar
   - [x] Publish the snap in the Snap store stable channel
   - [x] Update the install instructions in this `README.md`
   - [x] Post an announcement in the [Snapcraft Forum](https://forum.snapcraft.io) - [link](https://forum.snapcraft.io/t/call-for-testing-duck-marines-and-mr-rescue/1224)
-  - [ ] Submit a pull request or patch upstream that adds snap install documentation - [link]()
-  - [ ] Submit a pull request or patch upstream that adds the `snapcraft.yaml` and any required assets/launchers - contacted via email
+  - [-] Submit a pull request or patch upstream that adds snap install documentation
+  - [-] Submit a pull request or patch upstream that adds the `snapcraft.yaml` and any required assets/launchers
   - [x] Add upstream contact information to the `README.md`  
   - If upstream accept the PR:
-    - [ ] Request upstream create a Snap store account
-    - [ ] Contact the Snap Advocacy team to request the snap be transferred to upstream
-  - [ ] Ask the Snap Advocacy team to celebrate the snap - [link]()
+    - [-] Request upstream create a Snap store account
+    - [-] Contact the Snap Advocacy team to request the snap be transferred to upstream
+  - [-] Ask the Snap Advocacy team to celebrate the snap
 
 If you have any questions, [post in the Snapcraft forum](https://forum.snapcraft.io).
 
