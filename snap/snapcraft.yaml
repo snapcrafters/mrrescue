@@ -21,7 +21,7 @@ parts:
       - on amd64: https://bitbucket.org/rude/love/downloads/love_0.10.2ppa1_amd64.deb
       - on i386: https://bitbucket.org/rude/love/downloads/love_0.10.2ppa1_i386.deb
       - on armhf: https://bitbucket.org/rude/love/downloads/love_0.10.2ppa1_armhf.deb
-      - on amd64: fail
+      - on arm64: fail
     # Suitable stage-packages for LOVE 0.9.x and 0.10.x
     stage-packages:
       - libdevil1c2
@@ -44,7 +44,7 @@ parts:
       - on amd64: https://bitbucket.org/rude/love/downloads/liblove0_0.10.2ppa1_amd64.deb
       - on i386: https://bitbucket.org/rude/love/downloads/liblove0_0.10.2ppa1_i386.deb
       - on armhf: source https://bitbucket.org/rude/love/downloads/liblove0_0.10.2ppa1_armhf.deb
-      - on amd64: fail
+      - on arm64: fail
     plugin: dump
     after:
       - love0.10.2
