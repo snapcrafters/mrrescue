@@ -53,8 +53,7 @@ parts:
 
   mrrescue:
     plugin: nil
-    override-pull: |
-      snapcraftctl pull
+    override-build: |
       # Get the latest releases json
       echo "Get GitHub releases..."
       wget --quiet https://api.github.com/repos/SimonLarsen/mrrescue/releases/latest -O releases.json
