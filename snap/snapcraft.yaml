@@ -19,7 +19,6 @@ architectures:
 
 parts:
   love0.10.2:
-    source: https://bitbucket.org/rude/love/downloads/love_0.10.2ppa1_amd64.deb
     plugin: dump
     source:
       - on amd64: https://bitbucket.org/rude/love/downloads/love_0.10.2ppa1_amd64.deb
