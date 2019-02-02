@@ -1,6 +1,4 @@
 name: mrrescue
-version: latest
-version-script: cat $SNAPCRAFT_STAGE/version
 summary: Arcade-style fire fighting game
 description: |
  Mr. Rescue is an arcade styled 2D action game centered around evacuating
@@ -9,6 +7,7 @@ description: |
  The game features fast paced fire extinguishing action, intense boss battles,
  a catchy soundtrack and lots of throwing people around in pseudo-randomly
  generated buildings.
+adopt-info: mrrescue
 
 grade: stable
 confinement: strict
@@ -20,7 +19,6 @@ architectures:
 
 parts:
   love0.10.2:
-    source: https://bitbucket.org/rude/love/downloads/love_0.10.2ppa1_amd64.deb
     plugin: dump
     source:
       - on amd64: https://bitbucket.org/rude/love/downloads/love_0.10.2ppa1_amd64.deb
@@ -55,7 +53,6 @@ parts:
   mrrescue:
     plugin: nil
     override-build: |
-      snapcraftctl build
       # Get the latest releases json
       echo "Get GitHub releases..."
       wget --quiet https://api.github.com/repos/SimonLarsen/mrrescue/releases/latest -O releases.json
@@ -65,7 +62,7 @@ parts:
       echo "Downloading ${LOVE_URL}..."
       wget --quiet "${LOVE_URL}" -O "${SNAPCRAFT_PART_INSTALL}/game.love"
       rm -f releases.json 2>/dev/null
-      echo $VERSION > $SNAPCRAFT_STAGE/version
+      snapcraftctl set-version "$VERSION"
     build-packages:
       - jq
       - sed
