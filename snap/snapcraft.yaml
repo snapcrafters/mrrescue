@@ -8,6 +8,7 @@ description: |
  a catchy soundtrack and lots of throwing people around in pseudo-randomly
  generated buildings.
 adopt-info: mrrescue
+base: core20
 
 grade: stable
 confinement: strict
@@ -18,13 +19,32 @@ architectures:
   - build-on: armhf
 
 parts:
-  love0.10.2:
-    plugin: dump
-    source:
-      - on amd64: https://bitbucket.org/rude/love/downloads/love_0.10.2ppa1_amd64.deb
-      - on i386: https://bitbucket.org/rude/love/downloads/love_0.10.2ppa1_i386.deb
-      - on armhf: https://bitbucket.org/rude/love/downloads/love_0.10.2ppa1_armhf.deb
-    # Suitable stage-packages for LOVE 0.9.x and 0.10.x
+  love:
+    source: https://github.com/love2d/love.git
+    source-tag: "0.10.2"
+    override-pull: |
+      snapcraftctl pull
+      sed -i -e 's/luaL_reg/luaL_Reg/g' src/libraries/luasocket/libluasocket/*
+    override-build: |
+      ./platform/unix/automagic
+      snapcraftctl build
+    plugin: autotools
+    build-packages:
+      - build-essential
+      - autotools-dev
+      - automake
+      - libtool
+      - pkg-config
+      - libfreetype6-dev
+      - libluajit-5.1-dev
+      - libphysfs-dev
+      - libsdl2-dev
+      - libopenal-dev
+      - libogg-dev
+      - libvorbis-dev
+      - libmodplug-dev
+      - libmpg123-dev
+      - libtheora-dev
     stage-packages:
       - libdevil1c2
       - libfreetype6
@@ -39,16 +59,6 @@ parts:
       - libstdc++6
       - libtheora0
       - libvorbisfile3
-      - zlib1g
-
-  liblove0.10.2:
-    source:
-      - on amd64: https://bitbucket.org/rude/love/downloads/liblove0_0.10.2ppa1_amd64.deb
-      - on i386: https://bitbucket.org/rude/love/downloads/liblove0_0.10.2ppa1_i386.deb
-      - on armhf: https://bitbucket.org/rude/love/downloads/liblove0_0.10.2ppa1_armhf.deb
-    plugin: dump
-    after:
-      - love0.10.2
 
   mrrescue:
     plugin: nil
@@ -67,21 +77,28 @@ parts:
       - jq
       - sed
       - wget
-    after:
-      - desktop-glib-only
-      - liblove0.10.2
+  desktop-glib-only:
+    build-packages:
+    - libglib2.0-dev
+    plugin: make
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: glib-only
+    stage-packages:
+    - libglib2.0-bin
 
 apps:
   mrrescue:
-    command: bin/desktop-launch $SNAP/usr/bin/love $SNAP/game.love
+    command-chain:
+      - bin/desktop-launch
+    command: usr/bin/love $SNAP/game.love
     plugs:
+      - audio-playback
       - desktop
       - gsettings
       - home
       - joystick
       - network
       - opengl
-      - pulseaudio
       - screen-inhibit-control
       - wayland
       - x11
